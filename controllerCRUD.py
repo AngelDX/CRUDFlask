@@ -29,19 +29,19 @@ def delete_client(id):
 
 def get_by_id(id):
     conexion = conexionDB()
-    juego = None
+    client = None
     with conexion.cursor() as cursor:
         cursor.execute(
             "SELECT * FROM clientes WHERE id = %s", (id,))
-        juego = cursor.fetchone()
+        client = cursor.fetchone()
     conexion.close()
-    return juego
+    return client
 
 
-def update_client (nombres, apellidos,dni,direccion,email,id):
+def update_client (nombres,apellidos,dni,direccion,email,id):
     conexion = conexionDB()
     with conexion.cursor() as cursor:
         cursor.execute("UPDATE clientes SET nombres=%s,apellidos=%s,dni=%s,direccion=%s,email=%s WHERE id = %s",
-                       (nombres,apellidos,dni,direccion,email))
+                       (nombres,apellidos,dni,direccion,email,id))
     conexion.commit()
     conexion.close()

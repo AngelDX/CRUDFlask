@@ -7,15 +7,20 @@ Agregar juego
     <div class="columns">
         <div class="column">
             <h3 class="is-size-3">Agregar juego</h3>
-            <form action="{{url_for('guardar_juego')}}" method="post">
-                <label for="nombre">Nombre:</label>
-                <input required type="text" class="input" placeholder="Nombre" name="nombre" id="nombre">
-                <label for="descripcion">Descripción</label>
-                <input required type="text" class="input" placeholder="Descripción" name="descripcion" id="descripcion">
-                <label for="precio">Precio</label>
-                <input required type="number" class="input" placeholder="Precio" name="precio" id="precio">
+            <form action="{{url_for('guardar_cliente')}}" method="post">
+                <label for="nombre">Nombres:</label>
+                <input required type="text" class="input" placeholder="Nombres" name="nombres" id="nombres">
+                <label for="descripcion">Apellidos</label>
+                <input required type="text" class="input" placeholder="Apellidos" name="apellidos" id="apellidos">
+                <label for="precio">DNI</label>
+                <input required type="text" class="input" placeholder="DNI" name="dni" id="dni">
+                <label for="precio">Dirección</label>
+                <input required type="text" class="input" placeholder="Dirección" name="direccion" id="direccion">
+                <label for="precio">Correo Electrónico</label>
+                <input required type="text" class="input" placeholder="Email" name="email" id="email">
+                
                 <button type="submit" class="button is-success mt-2">Guardar</button>
-                <a href="{{url_for('juegos')}}" class="button is-primary mt-2">Volver</a>
+                <a href="{{url_for('clientes')}}" class="button is-primary mt-2">Volver</a>
             </form>
         </div>
     </div>

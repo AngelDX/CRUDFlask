@@ -10,11 +10,13 @@ def formulario_agregar_cliente():
 
 
 @app.route("/guardar_cliente", methods=["POST"])
-def guardar_juego():
-    nombre = request.form["nombre"]
-    descripcion = request.form["descripcion"]
-    precio = request.form["precio"]
-    controllerCRUD.insertar_juego(nombre, descripcion, precio)
+def guardar_cliente():
+    nom = request.form["nombres"]
+    ape = request.form["apellidos"]
+    dni = request.form["dni"]
+    dir = request.form["direccion"]
+    ema = request.form["email"]
+    controllerCRUD.create_client(nom,ape,dni,dir,ema)
     # De cualquier modo, y si todo fue bien, redireccionar
     return redirect("/clientes")
 
@@ -26,22 +28,24 @@ def clientes():
 
 @app.route("/eliminar_cliente", methods=["POST"])
 def eliminar_cliente():
-    controllerCRUD.eliminar_juego(request.form["id"])
+    controllerCRUD.delete_client(request.form["id"])
     return redirect("/clientes")
 
 @app.route("/formulario_editar_cliente/<int:id>")
-def actualizar_cliente(id):
+def actualizar_cliente_id(id):
     # Obtener el juego por ID
-    juego = controllerCRUD.obtener_juego_por_id(id)
-    return render_template("editar_cliente.html", juego=juego)
+    cliente = controllerCRUD.get_by_id(id)
+    return render_template("editar_cliente.html", cliente=cliente)
 
 @app.route("/actualizar_cliente", methods=["POST"])
-def actualizar_juego():
+def actualizar_cliente():
     id = request.form["id"]
-    nombre = request.form["nombre"]
-    descripcion = request.form["descripcion"]
-    precio = request.form["precio"]
-    controllerCRUD.actualizar_juego(nombre, descripcion, precio, id)
+    nom = request.form["nombres"]
+    ape = request.form["apellidos"]
+    dni = request.form["dni"]
+    dir = request.form["direccion"]
+    ema = request.form["email"]
+    controllerCRUD.update_client(nom,ape,dni,dir,ema,id)
     return redirect("/clientes")
 
 

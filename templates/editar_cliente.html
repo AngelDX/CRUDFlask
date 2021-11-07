@@ -1,4 +1,4 @@
-{% extends "maestra.html" %}
+{% extends "base.html" %}
 {% block titulo %}
 Editar juego
 {% endblock %}
@@ -7,17 +7,22 @@ Editar juego
     <div class="columns">
         <div class="column">
             <h3 class="is-size-3">Editar juego</h3>
-            <form action="{{url_for('actualizar_juego')}}" method="post">
+            <form action="{{url_for('actualizar_cliente')}}" method="post">
                 {# Enviar el id en un campo oculto #}
-                <input type="hidden" name="id" value="{{juego[0]}}">
-                <label for="nombre">Nombre:</label>
-                <input value="{{juego[1]}}" required type="text" class="input" placeholder="Nombre" name="nombre" id="nombre">
-                <label for="descripcion">Descripción</label>
-                <input value="{{juego[2]}}" required type="text" class="input" placeholder="Descripción" name="descripcion" id="descripcion">
-                <label for="precio">Precio</label>
-                <input value="{{juego[3]}}" required type="number" class="input" placeholder="Precio" name="precio" id="precio">
+                <input type="hidden" name="id" value="{{cliente[0]}}">
+                <label for="nombre">Nombres:</label>
+                <input required type="text" value="{{cliente[1]}}" class="input" placeholder="Nombres" name="nombres" id="nombres">
+                <label for="descripcion">Apellidos</label>
+                <input required type="text" value="{{cliente[2]}}" class="input" placeholder="Apellidos" name="apellidos" id="apellidos">
+                <label for="precio">DNI</label>
+                <input required type="text" value="{{cliente[3]}}" class="input" placeholder="DNI" name="dni" id="dni">
+                <label for="precio">Dirección</label>
+                <input required type="text" value="{{cliente[4]}}" class="input" placeholder="Dirección" name="direccion" id="direccion">
+                <label for="precio">Correo Electrónico</label>
+                <input required type="text" value="{{cliente[5]}}" class="input" placeholder="Email" name="email" id="email">
+
                 <button type="submit" class="button is-success mt-2">Guardar</button>
-                <a href="{{url_for('juegos')}}" class="button is-primary mt-2">Volver</a>
+                <a href="{{url_for('clientes')}}" class="button is-primary mt-2">Volver</a>
             </form>
         </div>
     </div>

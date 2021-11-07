@@ -10,26 +10,29 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Precio</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>DNI</th>
+                        <th>Dirección</th>
+                        <th>Email</th>
+                        <th colspan="2">Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for juego in clientes %}
+                    {% for cli in clientes %}
                     <tr>
-                        <td>{{juego[1]}}</td>
-                        <td>{{juego[2]}}</td>
-                        <td>{{juego[3]}}</td>
+                        <td>{{cli[1]}}</td>
+                        <td>{{cli[2]}}</td>
+                        <td>{{cli[3]}}</td>
+                        <td>{{cli[4]}}</td>
+                        <td>{{cli[5]}}</td>
                         <td>
                             {# Pasar el id (lo que hay en juego[0] #}
-                            <a href="{{url_for('actualizar_cliente', id=juego[0])}}" class="button is-info">Editar</a>
+                            <a href="{{url_for('actualizar_cliente_id', id=cli[0])}}" class="button is-info">Editar</a>
                         </td>
                         <td>
                             <form action="{{url_for('eliminar_cliente')}}" method="POST">
-                                <input type="hidden" name="id" value="{{juego[0]}}">
+                                <input type="hidden" name="id" value="{{cli[0]}}">
                                 <button class="button is-danger">Eliminar</button>
                             </form>
                         </td>
